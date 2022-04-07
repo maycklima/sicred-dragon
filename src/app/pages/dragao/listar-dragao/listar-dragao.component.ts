@@ -22,39 +22,28 @@ export class ListarDragaoComponent implements OnInit {
   listaDragoes: any;
 
   listarDragoes(){
-  console.log('listando')
   this.dragaoService.listarDragoes().subscribe((resultado: DragaoModel[]) => {
-      console.log(resultado);
       this.listaDragoes = resultado;
   });
 }
 
-
-
 inserirEditarDragao(idDragao:number){
-  console.log(idDragao)
   this.router.navigate(['cadastro', idDragao]);
-  
 }
 
 sair(){
   this.router.navigate(['']);
-  
 }
 
 detalharDragao(idDragao:number){
-  console.log(idDragao)
   this.router.navigate(['detalhar', idDragao]);
   
 }
 
 deletarDragao(dragao: any){
   this.dragaoService.deletarDragaoPorId(dragao.id).subscribe((resultado: DragaoModel) => {
-    console.log(resultado);
     if(resultado){
       this.listarDragoes();
-    }
-});
-}
-
+    }});
+  }
 }

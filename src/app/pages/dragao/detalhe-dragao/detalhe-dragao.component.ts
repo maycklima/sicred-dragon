@@ -27,8 +27,6 @@ export class DetalheDragaoComponent implements OnInit {
     this.routerActive.paramMap
       .subscribe((params: ParamMap) => {
         const idDragao: number = +params.get('idDragao');
-        console.log(idDragao)
-
           this.dragaoService.buscarDragaoPorId(idDragao).subscribe((resultado: DragaoModel) => {
             this.dragao = resultado;
           });;

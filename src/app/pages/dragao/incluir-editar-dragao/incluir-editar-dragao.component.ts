@@ -40,8 +40,6 @@ export class IncluirEditarDragaoComponent implements OnInit {
     this.routerActive.paramMap
       .subscribe((params: ParamMap) => {
         const idDragao: number = +params.get('idDragao');
-        console.log(idDragao)
-
         if (!!idDragao) {
           this.isEdicao = true;
           this.dragaoService.buscarDragaoPorId(idDragao).subscribe((resultado: DragaoModel) => {
@@ -54,8 +52,6 @@ export class IncluirEditarDragaoComponent implements OnInit {
 
   preencherFormulario(dragao: DragaoModel){
     this.formulario.patchValue(dragao);
-    console.log('this.dragao')
-    console.log(this.formulario)
   }
 
   cancelar(){
@@ -63,20 +59,17 @@ export class IncluirEditarDragaoComponent implements OnInit {
   }
 
   salvar(){  
-    console.log("Cadastrando item...")
     this.dragaoFormulario = this.formulario.getRawValue();
     
     if(this.formulario.valid){
       if(!this.isEdicao){
         this.dragaoService.cadastrarDragao(this.dragaoFormulario).subscribe((resultado: DragaoModel) => {
-          console.log(resultado);
           if(resultado){
             this.cancelar();
           }
       });
       }else{
         this.dragaoService.atualizarDragao(this.dragaoFormulario).subscribe((resultado: DragaoModel) => {
-          console.log(resultado);
           if(resultado){
             this.cancelar();
           }
@@ -84,8 +77,5 @@ export class IncluirEditarDragaoComponent implements OnInit {
       }
     }
   }
-}
-function take(arg0: number): import("rxjs").OperatorFunction<import("@angular/router").ParamMap, unknown> {
-  throw new Error('Function not implemented.');
 }
 

@@ -27,8 +27,6 @@ import { DragaoModel } from "../models/dragao.model";
     }
 
     atualizarDragao(dragao: DragaoModel): Observable<DragaoModel> {
-      console.log('atualizando dragão');
-      console.log(dragao);
       return this.http.put<DragaoModel>(`${this.APIreport}/${dragao.id}`, dragao);
     }
   
