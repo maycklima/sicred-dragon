@@ -1,5 +1,6 @@
 export interface DragaoModel {
-dataCriacao: any;
-nome: string;
-tipo: string;
+    id: number;
+    name: string;
+    type: string;
+    createdAt: Date;
 }

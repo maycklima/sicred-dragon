@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
+import { DragaoModel } from "../models/dragao.model";
 
 @Injectable({
     providedIn: 'root'
@@ -13,25 +14,25 @@ import { environment } from "src/environments/environment";
     constructor(private http: HttpClient) {
     }
 
-    listarDragoes(): Observable<any[]> {
-        return this.http.get<any[]>(`${this.APIreport}`);
+    listarDragoes(): Observable<DragaoModel[]> {
+        return this.http.get<DragaoModel[]>(`${this.APIreport}`);
     }
 
-    buscarDragaoPorId(dragaoId): Observable<any[]> {
-      return this.http.get<any[]>(`${this.APIreport}/`+ dragaoId);
+    buscarDragaoPorId(dragaoId: number): Observable<DragaoModel> {
+      return this.http.get<DragaoModel>(`${this.APIreport}/`+ dragaoId);
   }
 
-    cadastrarDragao(dragao: any): Observable<any[]> {
-      return this.http.post<any[]>(`${this.APIreport}`, dragao);
+    cadastrarDragao(dragao: DragaoModel): Observable<DragaoModel> {
+      return this.http.post<DragaoModel>(`${this.APIreport}`, dragao);
     }
 
-    atualizarDragao(dragao: any): Observable<any[]> {
+    atualizarDragao(dragao: DragaoModel): Observable<DragaoModel> {
       console.log('atualizando dragão');
       console.log(dragao);
-      return this.http.put<any[]>(`${this.APIreport}/${dragao.id}`, dragao);
+      return this.http.put<DragaoModel>(`${this.APIreport}/${dragao.id}`, dragao);
     }
   
-    deletarDragaoPorId(dragaoId: any): Observable<any[]> {
-      return this.http.delete<any[]>(`${this.APIreport}/` + dragaoId);
+    deletarDragaoPorId(dragaoId: number): Observable<DragaoModel> {
+      return this.http.delete<DragaoModel>(`${this.APIreport}/` + dragaoId);
     }
 }

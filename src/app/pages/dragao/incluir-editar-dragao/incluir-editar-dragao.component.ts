@@ -1,3 +1,4 @@
+import { DragaoModel } from './../../../shared/models/dragao.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
@@ -18,7 +19,7 @@ export class IncluirEditarDragaoComponent implements OnInit {
     ) { }
 
   formulario: FormGroup;
-  dragaoFormulario: any;
+  dragaoFormulario: DragaoModel;
   isEdicao: boolean;
 
   ngOnInit() {
@@ -43,15 +44,15 @@ export class IncluirEditarDragaoComponent implements OnInit {
 
         if (!!idDragao) {
           this.isEdicao = true;
-          this.dragaoService.buscarDragaoPorId(idDragao).subscribe(resultado => {
+          this.dragaoService.buscarDragaoPorId(idDragao).subscribe((resultado: DragaoModel) => {
           this.preencherFormulario(resultado);  
-          });;
+          });
         }
 
       });
   }
 
-  preencherFormulario(dragao: any){
+  preencherFormulario(dragao: DragaoModel){
     this.formulario.patchValue(dragao);
     console.log('this.dragao')
     console.log(this.formulario)

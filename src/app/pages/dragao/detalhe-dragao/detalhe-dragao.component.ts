@@ -1,3 +1,4 @@
+import { DragaoModel } from './../../../shared/models/dragao.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
@@ -16,7 +17,7 @@ export class DetalheDragaoComponent implements OnInit {
     private dragaoService : DragaoService
   ) { }
 
-  dragao: any;
+  dragao: DragaoModel;
 
   ngOnInit() {
     this.inicializar();

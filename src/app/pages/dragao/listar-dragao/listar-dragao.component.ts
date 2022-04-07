@@ -30,7 +30,7 @@ export class ListarDragaoComponent implements OnInit {
 
 
 
-inserirEditarDragao(idDragao:any){
+inserirEditarDragao(idDragao:number){
   console.log(idDragao)
   this.router.navigate(['cadastro', idDragao]);
   
@@ -41,7 +41,7 @@ sair(){
   
 }
 
-detalharDragao(idDragao:any){
+detalharDragao(idDragao:number){
   console.log(idDragao)
   this.router.navigate(['detalhar', idDragao]);
   
