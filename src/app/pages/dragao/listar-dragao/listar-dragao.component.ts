@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DragaoModel } from 'src/app/shared/models/dragao.model';
 import { DragaoService } from 'src/app/shared/services/dragao.service';
 
 @Component({
@@ -22,9 +23,9 @@ export class ListarDragaoComponent implements OnInit {
 
   listarDragoes(){
   console.log('listando')
-  this.dragaoService.listarDragoes().subscribe(resposta => {
-      console.log(resposta);
-      this.listaDragoes = resposta;
+  this.dragaoService.listarDragoes().subscribe((resultado: DragaoModel[]) => {
+      console.log(resultado);
+      this.listaDragoes = resultado;
   });
 }
 
@@ -48,9 +49,9 @@ detalharDragao(idDragao:number){
 }
 
 deletarDragao(dragao: any){
-  this.dragaoService.deletarDragaoPorId(dragao.id).subscribe(resposta => {
-    console.log(resposta);
-    if(resposta){
+  this.dragaoService.deletarDragaoPorId(dragao.id).subscribe((resultado: DragaoModel) => {
+    console.log(resultado);
+    if(resultado){
       this.listarDragoes();
     }
 });

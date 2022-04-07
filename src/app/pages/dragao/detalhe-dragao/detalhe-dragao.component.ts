@@ -29,7 +29,7 @@ export class DetalheDragaoComponent implements OnInit {
         const idDragao: number = +params.get('idDragao');
         console.log(idDragao)
 
-          this.dragaoService.buscarDragaoPorId(idDragao).subscribe(resultado => {
+          this.dragaoService.buscarDragaoPorId(idDragao).subscribe((resultado: DragaoModel) => {
             this.dragao = resultado;
           });;
       });

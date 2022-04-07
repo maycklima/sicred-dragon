@@ -68,16 +68,16 @@ export class IncluirEditarDragaoComponent implements OnInit {
     
     if(this.formulario.valid){
       if(!this.isEdicao){
-        this.dragaoService.cadastrarDragao(this.dragaoFormulario).subscribe(resposta => {
-          console.log(resposta);
-          if(resposta){
+        this.dragaoService.cadastrarDragao(this.dragaoFormulario).subscribe((resultado: DragaoModel) => {
+          console.log(resultado);
+          if(resultado){
             this.cancelar();
           }
       });
       }else{
-        this.dragaoService.atualizarDragao(this.dragaoFormulario).subscribe(resposta => {
-          console.log(resposta);
-          if(resposta){
+        this.dragaoService.atualizarDragao(this.dragaoFormulario).subscribe((resultado: DragaoModel) => {
+          console.log(resultado);
+          if(resultado){
             this.cancelar();
           }
       });
