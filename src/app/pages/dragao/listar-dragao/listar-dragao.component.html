@@ -1,0 +1,31 @@
+<div  style="text-align: right;">
+  <button class="w3-button w3-gray w3-round" (click)="sair()">Sair</button>
+</div>
+<h2 style="text-align: center;">Dragões do Sicred</h2><br>
+<div  style="text-align: right; padding-right: 20px; padding-bottom: 10px;">
+    <button class="w3-button w3-green  w3-round" (click)="inserirEditarDragao($event)">Adicionar</button>
+</div>
+<table>
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Data de Criação</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dragao of listaDragoes">
+        <td >{{dragao.name}}</td>
+        <td >{{dragao.type}}</td>
+        <td >{{dragao.createdAt | date }}</td>
+        <td >
+          <div>
+            <i class="fa fa-info-circle icone"  tooltip="Detalhes do Dragão" (click)="detalharDragao(dragao.id)"></i>
+            <i class="fa fa-edit  icone"  (click)="inserirEditarDragao(dragao.id)"></i>
+            <i class="fa fa-trash icone"  (click)="deletarDragao(dragao)"></i>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+</table>

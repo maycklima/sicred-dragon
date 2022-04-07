@@ -1,0 +1,8 @@
+<h2 style="text-align: center;">Login</h2><br>
+<div class="container">
+    <form [formGroup]="formulario">
+      <label for="fname">Usuario</label>
+      <input type="text" required id="fname" name="firstname" formControlName="usuario" placeholder="Digite um usuario">
+      <input type="submit" (click)="entrar()" value="Entrar">
+    </form>
+</div>

@@ -1,0 +1,13 @@
+<h2 style="text-align: center;">{{isEdicao ? 'Editar Dragão' : 'Cadastro de Dragões do Sicred'}}</h2><br>
+<div class="container">
+    <form [formGroup]="formulario">
+      <label for="fname">Nome</label>
+      <input type="text" id="fname" name="firstname" formControlName="name" placeholder="Digite um nome para o dragão...">
+
+      <label for="lname">Tipo</label>
+      <input type="text" id="lname" name="lastname" formControlName="type" placeholder="Digite um tipo para o dragão..">
+
+      <input type="cancel" (click)="cancelar()" value="Cancelar">
+      <input type="submit" (click)="salvar()" value="{{isEdicao ? 'Salvar' : 'Cadastrar'}}">
+    </form>
+</div>
